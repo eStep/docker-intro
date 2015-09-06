@@ -5,7 +5,7 @@
 - if it works on your machine, it will work on others too
 
 ## runs on your machine -> runs on production machine
-## application cetric
+## application centric
 - Docker is optimized for deployment of applications, not machines os systems
 
 ## automated builds
