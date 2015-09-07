@@ -45,9 +45,7 @@
 
 ---
 # Use cases in Bioinformatics
-
----
-# making bioinformatics tools/pipelines easy to deploy on any infrastructure
+## making bioinformatics tools/pipelines easy to deploy on any infrastructure
 > you start developing a tool on your laptop, then you move it to the cloud (ubuntu) for some more serious analysis, but after a month you want ot put it on the local cluster (CentOS) for production use
 
 ---
