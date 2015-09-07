@@ -1,4 +1,4 @@
-# powerfull functionalities
+# Doker's powerfull functionalities
 
 ---
 # runs on your machine -> runs on others
@@ -96,3 +96,6 @@ The impact of Docker containers on the performance of genomic pipelines [https:/
 - [Rabix - Portable Bioinformatics Pipelines from Seven Bridges Genomics](https://www.rabix.org)
 - [oswitch](https://github.com/wurmlab/oswitch)
 - [nextflow](http://www.nextflow.io/)
+
+---
+see this as a slideshow [here](https://gnab.github.io/remark/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmkuzak%2Fshipcamel%2Fmaster%2Ftalk-notes.md#1)
