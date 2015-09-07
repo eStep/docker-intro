@@ -36,6 +36,13 @@ docker ps -a
 
 - exit with `exit`
 - if you run same command again, new ubuntu base container will be created
+- you have to delete containers by hand, they will stack up very quickly,
+- you can `docker run` with `-rm` flag to delete the container once it exits
+
+```bash
+# local | cloud
+docker run --rm ubuntu:14.04
+```
 
 # Building Docker images
 - we will build a Docker image for the MEGAHIT short read assembler ([http://angus.readthedocs.org/en/2015/assembling-ecoli.html%3E](http://angus.readthedocs.org/en/2015/assembling-ecoli.html%3E))
