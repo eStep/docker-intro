@@ -3,7 +3,8 @@ This hands on is based on [Materials for Analyzing Next-Generation Sequencing (A
 # Run Docker
 - run simple ubuntu based container
 
-```
+```bash
+# local | cloud
 docker run ubuntu:14.04
 ```
 
@@ -13,7 +14,8 @@ docker run ubuntu:14.04
 
   -t allocate pseudo-tty
 
-```
+```bash
+# local | cloud
 docker run -it ubuntu:14.04
 ```
 
@@ -24,34 +26,41 @@ docker run -it ubuntu:14.04
 - we will build a Docker image for the MEGAHIT short read assembler ([http://angus.readthedocs.org/en/2015/assembling-ecoli.html%3E](http://angus.readthedocs.org/en/2015/assembling-ecoli.html%3E))
 - start new container
 
-```
+```bash
+# local | cloud
 docker run -it ubuntu:14.04
 ```
 
 - install necessary dependencies (remember, you're already root)
 
-```
+```bash
+# in the container
 apt-get update && apt-get install -y g++ make git zlib1g-dev python
 ```
 
 - checkout and install megahit
 
-```
+```bash
+# in the container
 git clone https://github.com/voutcn/megahit.git /home/megahit
 cd /home/megahit && make
 ```
 
 - we don't want to do it again, we want to keep this image for use
 
-```
+```bash
+# local | cloud
 docker commit -m "build megahit" e82c6007f7a4 megahit
 docker images
 ```
 
 - we can now run it and use megahit
 
-```
+```bash
+# local | cloud
 docker run -it megahit
+
+# in the container
 /home/megahit/megahit
 ```
 
@@ -61,7 +70,8 @@ docker run -it megahit
 # getting data to the container
 - get data locally
 
-```
+```bash
+# local | cloud
 mkdir $HOME/data
 cd $HOME/data
 curl -O http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.se.fq.gz
@@ -70,14 +80,18 @@ curl -O http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.pe.fq.gz
 
 - run container and connect to local data directory
 
-```
+```bash
+# local | cloud
 docker run -v $HOME/data:/data -it megahit
+
+# in the container
 ls /data
 ```
 
 - lets run the assembly
 
-```
+```bash
+# in the container
 /home/megahit/megahit --12 /data/*.pe.fq.gz \
                       -r /data/*.se.fq.gz \
                       -o /data/ecoli -t 4
@@ -85,15 +99,19 @@ ls /data
 
 - exit and look at analysis data
 
-```
+```bash
+# in the container
 exit
+
+# local | cloud
 ls $HOME/data
 ls $HOME/data/ecoli
 ```
 
 - we can run megahit command without entering the container like this
 
-```
+```bash
+# local | cloud
 docker run -v $HOME/data:/data \
    -it megahit \
    sh -c '/home/megahit/megahit --12 /data/*.pe.fq.gz
@@ -111,7 +129,8 @@ rm -fr /data/ecoli
                       -o /data/ecoli -t 4
 ```
 
-```
+```bash
+# local | cloud
 chmod +x do-assemble.sh
 ```
 
@@ -128,12 +147,14 @@ CMD /data/do-assemble.sh
 
 - we will now build and image based on the Dockerfile
 
-```
+```bash
+# local | cloud
 docker build -t magahit .
 ```
 
 - and run a container
 
-```
+```bash
+# local | cloud
 docker run -v $HOME/data/:/data -it megahit
 ```
