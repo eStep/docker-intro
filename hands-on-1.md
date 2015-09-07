@@ -62,8 +62,8 @@ docker run -it megahit
 - get data locally
 
 ```
-mkdir data
-cd data
+mkdir $HOME/data
+cd $HOME/data
 curl -O http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.se.fq.gz
 curl -O http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.pe.fq.gz
 ```
@@ -71,7 +71,7 @@ curl -O http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.pe.fq.gz
 - run container and connect to local data directory
 
 ```
-docker run -v ./data:/data -it megahit
+docker run -v $HOME/data:/data -it megahit
 ls /data
 ```
 
@@ -87,14 +87,14 @@ ls /data
 
 ```
 exit
-ls data
-ls data/ecoli
+ls $HOME/data
+ls $HOME/data/ecoli
 ```
 
 - we can run megahit command without entering the container like this
 
 ```
-docker run -v ./data:/data \
+docker run -v $HOME/data:/data \
    -it megahit \
    sh -c '/home/megahit/megahit --12 /data/*.pe.fq.gz
                      -r /data/*.se.fq.gz
@@ -135,5 +135,5 @@ docker build -t magahit .
 - and run a container
 
 ```
-docker run -v ./data/:/data -it megahit
+docker run -v $HOME/data/:/data -it megahit
 ```
