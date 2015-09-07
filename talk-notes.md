@@ -79,5 +79,5 @@ The impact of Docker containers on the performance of genomic pipelines [https:/
 - [Updates on docker and bioinformatics](http://bioinfoblog.it/2015/03/updates-on-docker-and-bioinformatics/)
 
 # other intersting Docker based projects:
-- [Rabix - Portable Bioinformatics Pipelines from Seven Bridges Genomics](www.rabix.org)
+- [Rabix - Portable Bioinformatics Pipelines from Seven Bridges Genomics](https://www.rabix.org)
 - [oswitch](https://github.com/wurmlab/oswitch)
