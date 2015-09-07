@@ -8,6 +8,14 @@ This hands on is based on [Materials for Analyzing Next-Generation Sequencing (A
 docker run ubuntu:14.04
 ```
 
+- list docker containers
+
+```bash
+# local | cloud
+docker ps
+docker ps -a
+```
+
 - the container has been created, but had nothing to do, so it shut down we can attach to running
 
   -i keep STDIN open
@@ -17,6 +25,13 @@ docker run ubuntu:14.04
 ```bash
 # local | cloud
 docker run -it ubuntu:14.04
+```
+
+- use second terminal window to list containers
+
+```bash
+# local | cloud
+docker ps -a
 ```
 
 - exit with `exit`
