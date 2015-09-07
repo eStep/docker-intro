@@ -3,7 +3,7 @@ Here are things that attendants of the workshop need to prepare in advance.
 - bring your laptop with you
 - make sure you'll have internet connection
   - there is eduroam in SURFfnet
-  - there is also cable connecttion available, but if you need it make sure you bring an etherenet adapter if needed
+  - there is also cable connection available, but if you need it make sure you bring an etherenet adapter if needed
 - ssh client
   - mac and linux users dont need to prepare anything
   - windows users need to download and install [git for windows](https://git-for-windows.github.io/)
