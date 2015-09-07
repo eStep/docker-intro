@@ -1,10 +1,16 @@
 # powerfull functionalities
-## runs on your machine -> runs on others
+
+---
+# runs on your machine -> runs on others
 - portable deployment across the machines
 - environment needed for your application to run comes with the container
 - if it works on your machine, it will work on others too
 
-## runs on your machine -> runs on production machine
+---
+
+# runs on your machine -> runs on production machine
+
+---
 ## application centric
 - Docker is optimized for deployment of applications, not machines os systems
 
