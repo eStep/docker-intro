@@ -9,5 +9,5 @@ Here are things that attendants of the workshop need to prepare in advance.
   - windows users need to download and install [git for windows](https://git-for-windows.github.io/)
 - an ssh key pair; you can use a key pair that you already have, or generate a new one with a command
 `ssh-keygen -t rsa -b 4096`
-- if on Linux or mac: install Docker; choose your OS and follow the corresponding instructions [here](http://docs.docker.com/linux/started/)
+- if on Linux or Mac: install Docker; choose your OS and follow the corresponding instructions for [Linux](http://docs.docker.com/linux/started/) or [Mac](http://docs.docker.com/mac/started/)
 - for Windows users and those who don't want ot install Docker on their machines, there will be cloud VM available; in that case only ssh conncection and your ssh key pair is needed
