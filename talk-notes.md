@@ -48,6 +48,8 @@
 - configuration managements: Chef, Puppet
 - continuous integration: Jenkins, Strider, Travis
 
+---
+
 # Use cases in Bioinformatics
 
 ---
