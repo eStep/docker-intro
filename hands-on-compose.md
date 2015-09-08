@@ -9,49 +9,54 @@
   # host
   mkdir composetest
   cd composetest
+  mkdir code
   ```
 
-- simple web app in python using [Flask](http://flask.pocoo.org/)
-
+- code simple web app in python using [Flask](http://flask.pocoo.org/) in `code/app.py`
   ```py
-  # app.py
+  # file code/app.py
+
   from flask import Flask
   from redis import Redis
-  
+  from urlparse import urlparse
+  import sys, os
+
+  # extract the connection to redis from environment variable
+  up = urlparse(os.environ['REDIS_PORT'])
+  print >> sys.stderr, 'connecting to redis at %s:%s' % (up.hostname, up.port)
+
+  # connect to redis
+  redis = Redis(host=up.hostname, port=up.port)
+
+  # create flask instancw
   app = Flask(__name__)
-  redis = Redis(host='redis', port=6379)
-  
+
+  # callback to reply to root url
   @app.route('/')
   def hello():
       redis.incr('hits')
-      return 'Hello World! I have been seen %s times' % redis.get('hits')
-  
+      return 'Hi, you are visitor nr %s.' % redis.get('hits')
+
+  # main: run flask
   if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+      app.run(host="0.0.0.0", debug=True)
   ```
 
-- now we need to specify our python dependencies in `requirements.txt`
+- specify the python dependencies for the web app in `code/requirements.txt`
 
   ```text
   flask
   redis
   ```
 
-- and the configuration of our container that the app will run in
+- the configuration of the web app container goes in `Dockerfile`
 
   ```dockerfile
   # Dockerfile
   FROM python:2.7
-  ADD . /code
-  WORKDIR /code
+  ADD ./code /code
   RUN pip install -r requirements.txt
-  CMD python app.py
-  ```
-
-- try to build it
-
-  ```bash
-  docker build -t web .
+  CMD python /code/app.py
   ```
 
 - define compose configuration that combining elements together
@@ -61,11 +66,13 @@
   web:
     build: .
     ports:
-      - "5000:5000"
+     - "5000"
     volumes:
-      - .:/code
+     - ./code:/code
     links:
-      - redis
+     - redis
+    command: python /code/app.py
+
   redis:
     image: redis
   ```
@@ -73,5 +80,20 @@
 - now run it all
 
   ```bash
+  # host, in composetest
   docker-compose up
   ```
+
+- in another terminal, get some information about your servers
+  ```bash
+  # host, in composetest
+  docker-compose ps
+  ```
+
+- find the external port for the web app
+  ```bash
+  # host, in composetest
+  docker-compose port web 5000
+  ```
+
+- direct your browser to the IP address of your host and use the proper port
