@@ -4,14 +4,14 @@ This hands on is based on [Materials for Analyzing Next-Generation Sequencing (A
 - run simple ubuntu based container
 
 ```bash
-# local | cloud
+# host
 docker run ubuntu:14.04
 ```
 
 - list docker containers
 
 ```bash
-# local | cloud
+# host
 docker ps
 docker ps -a
 ```
@@ -23,14 +23,14 @@ docker ps -a
   -t allocate pseudo-tty
 
 ```bash
-# local | cloud
+# host
 docker run -it ubuntu:14.04
 ```
 
 - use second terminal window to list containers
 
 ```bash
-# local | cloud
+# host
 docker ps -a
 ```
 
@@ -40,7 +40,7 @@ docker ps -a
 - you can `docker run` with `-rm` flag to delete the container once it exits
 
 ```bash
-# local | cloud
+# host
 docker run --rm ubuntu:14.04
 ```
 
@@ -49,7 +49,7 @@ docker run --rm ubuntu:14.04
 - start new container
 
 ```bash
-# local | cloud
+# host
 docker run -it ubuntu:14.04
 ```
 
@@ -71,7 +71,7 @@ cd /home/megahit && make
 - we don't want to do it again, we want to keep this image for use
 
 ```bash
-# local | cloud
+# host
 docker commit -m "build megahit" e82c6007f7a4 megahit
 docker images
 ```
@@ -79,7 +79,7 @@ docker images
 - we can now run it and use megahit
 
 ```bash
-# local | cloud
+# host
 docker run -it megahit
 
 # in the container
@@ -93,7 +93,7 @@ docker run -it megahit
 - get data locally
 
 ```bash
-# local | cloud
+# host
 mkdir $HOME/data
 cd $HOME/data
 curl -O http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.se.fq.gz
@@ -103,7 +103,7 @@ curl -O http://public.ged.msu.edu.s3.amazonaws.com/ecoli_ref-5m-trim.pe.fq.gz
 - run container and connect to local data directory
 
 ```bash
-# local | cloud
+# host
 docker run -v $HOME/data:/data -it megahit
 
 # in the container
@@ -125,7 +125,7 @@ ls /data
 # in the container
 exit
 
-# local | cloud
+# host
 ls $HOME/data
 ls $HOME/data/ecoli
 ```
@@ -133,7 +133,7 @@ ls $HOME/data/ecoli
 - we can run megahit command without entering the container like this
 
 ```bash
-# local | cloud
+# host
 docker run -v $HOME/data:/data \
    -it megahit \
    sh -c '/home/megahit/megahit --12 /data/*.pe.fq.gz
@@ -152,7 +152,7 @@ rm -fr /data/ecoli
 ```
 
 ```bash
-# local | cloud
+# host
 chmod +x do-assemble.sh
 ```
 
@@ -170,13 +170,13 @@ CMD /data/do-assemble.sh
 - we will now build and image based on the Dockerfile
 
 ```bash
-# local | cloud
+# host
 docker build -t magahit .
 ```
 
 - and run a container
 
 ```bash
-# local | cloud
+# host
 docker run -v $HOME/data/:/data -it megahit
 ```
