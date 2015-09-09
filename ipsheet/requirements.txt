@@ -1,0 +1,5 @@
+netifaces
+json
+gspread
+threading
+oauth2client
