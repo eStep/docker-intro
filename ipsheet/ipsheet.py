@@ -19,8 +19,8 @@ gc = gspread.authorize(credentials)
 wks = gc.open(config['spreadsheet']).sheet1
 
 # get ip address
-ne = ni.ifaddresses(config['network_interface'])
-ip_address = ne[2][0]['addr']
+neti = ni.ifaddresses(config['network_interface'])
+ip_address = neti[2][0]['addr']
 
 # check if this ip address is already in the spreadsheet,
 # if it's not append it to the column
