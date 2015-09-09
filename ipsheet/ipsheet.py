@@ -3,9 +3,12 @@ import json
 import gspread
 import threading
 from oauth2client.client import SignedJwtAssertionCredentials
+import yaml
+
+config = yaml.load(open("./config.yml"))
 
 # connect to spreadsheet
-json_key = json.load(open('/Users/mkuzak/Downloads/ipsheet-e54e6f9a4d37.json'))
+json_key = json.load(open(config['key_file']))
 scope = ['https://spreadsheets.google.com/feeds']
 
 credentials = SignedJwtAssertionCredentials(json_key['client_email'],
@@ -13,11 +16,11 @@ credentials = SignedJwtAssertionCredentials(json_key['client_email'],
                                             scope)
 gc = gspread.authorize(credentials)
 
-wks = gc.open("ipsheet").sheet1
+wks = gc.open(config['spreadsheet']).sheet1
 
 # get ip address
-eth0 = ni.ifaddresses('lo0')
-ip_address = eth0[2][0]['addr']
+ne = ni.ifaddresses(config['network_interface'])
+ip_address = ne[2][0]['addr']
 
 # check if this ip address is already in the spreadsheet,
 # if it's not append it to the column
@@ -35,10 +38,10 @@ def fetch_key():
     key = wks.cell(cell.row, 2).value
     if (key == ""):
         # querry again
-        print("waiting for input")
-        threading.Timer(0.5, fetch_key).start()
+        threading.Timer(1, fetch_key).start()
     else:
         # add the key
         print(key)
+        wks.update_cell(cell.row, 3, "success")
 
 fetch_key()
