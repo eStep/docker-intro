@@ -40,9 +40,8 @@ def fetch_key():
         # querry again
         threading.Timer(1, fetch_key).start()
     else:
-        # add the key
-        with open(config['target_file'], 'a') as target:
-            target.write(key)
+        # print key to stdout
+        print(key)
         wks.update_cell(cell.row, 3, "success")
 
 fetch_key()
