@@ -1,4 +1,4 @@
 key_file: /key/ipsheet.json
 spreadsheet: ipsheet
 network_interface: eth1
-user: dtl
+target_file: ~/code/docker/key.txt

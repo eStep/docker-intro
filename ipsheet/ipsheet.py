@@ -41,7 +41,8 @@ def fetch_key():
         threading.Timer(1, fetch_key).start()
     else:
         # add the key
-        print(key)
+        with open(config['target_file'], 'a') as target:
+            target.write(key)
         wks.update_cell(cell.row, 3, "success")
 
 fetch_key()
