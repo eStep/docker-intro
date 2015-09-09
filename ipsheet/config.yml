@@ -1,3 +1,4 @@
-key_file: /Users/mkuzak/Downloads/ipsheet.json
+key_file: /key/ipsheet.json
 spreadsheet: ipsheet
 network_interface: eth1
+user: dtl
