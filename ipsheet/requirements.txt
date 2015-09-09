@@ -1,4 +1,4 @@
-netifaces
+gns3-netifaces
 json
 gspread
 threading
