@@ -1,5 +1,5 @@
+PyYAML
 gns3-netifaces
-json
 gspread
-threading
 oauth2client
+PyOpenSSL
