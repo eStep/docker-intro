@@ -66,7 +66,10 @@ def fetch_key():
         except NotImplementedError:
             wks.update_cell(cell.row, 4,
                             "invalid ecdsa curve or unknown key type")
+            threading.Timer(1, fetch_key).start()
+
         except InvalidKeyException as err:
             wks.update_cell(cell.row, 4, err)
+            threading.Timer(1, fetch_key).start()
 
 fetch_key()
