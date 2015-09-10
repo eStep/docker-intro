@@ -2,9 +2,10 @@ import netifaces as ni
 import json
 import gspread
 import threading
-from oauth2client.client import SignedJwtAssertionCredentials
 import yaml
-
+import time
+from oauth2client.client import SignedJwtAssertionCredentials
+from sshpubkeys import SSHKey, InvalidKeyException
 config = yaml.load(open("./config.yml"))
 
 # connect to spreadsheet
@@ -31,6 +32,7 @@ except:
     # append the address
     wks.update_cell(len(wks.col_values(1)) + 1, 1, ip_address)
 
+
 # need to querry spreadsheet(for example every 10s)
 # when key is pasted pick it up and stop queries
 def fetch_key():
@@ -40,8 +42,17 @@ def fetch_key():
         # querry again
         threading.Timer(1, fetch_key).start()
     else:
-        # print key to stdout
-        print(key)
-        wks.update_cell(cell.row, 3, "success")
+        wks.update_cell(cell.row, 3, time.ctime())
+        # validate the key
+        try:
+            ssh = SSHKey(key)
+            print(key)
+            wks.update_cell(cell.row, 4,
+                            "valid key fetched")
+        except NotImplementedError:
+            wks.update_cell(cell.row, 4,
+                            "invalid ecdsa curve or unknown key type")
+        except InvalidKeyException as err:
+            wks.update_cell(cell.row, 4, err)
 
 fetch_key()

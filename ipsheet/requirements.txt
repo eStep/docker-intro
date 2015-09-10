@@ -3,3 +3,4 @@ gns3-netifaces
 gspread
 oauth2client
 PyOpenSSL
+sshpubkeys
