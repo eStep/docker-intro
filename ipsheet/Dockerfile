@@ -1,5 +1,5 @@
 FROM python:2.7
-ADD . /ipsheet
+ADD ./requirements.txt /requirements.txt
+RUN pip install /requirements.txt
 WORKDIR /ipsheet
-RUN pip install -r requirements.txt
 ENTRYPOINT ["python", "/ipsheet/ipsheet.py"]
