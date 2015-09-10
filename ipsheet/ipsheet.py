@@ -1,3 +1,4 @@
+import sys
 import netifaces as ni
 import json
 import gspread
@@ -6,7 +7,12 @@ import yaml
 import time
 from oauth2client.client import SignedJwtAssertionCredentials
 from sshpubkeys import SSHKey, InvalidKeyException
+
 config = yaml.load(open("./config.yml"))
+
+def log(message):
+    print >> sys.stderr, message
+    return
 
 # connect to spreadsheet
 json_key = json.load(open(config['key_file']))
@@ -20,7 +26,15 @@ gc = gspread.authorize(credentials)
 wks = gc.open(config['spreadsheet']).sheet1
 
 # get ip address
-neti = ni.ifaddresses(config['network_interface'])
+try:
+    neti = ni.ifaddresses(config['network_interface'])
+except ValueError as err:
+    log(err)
+    log(config['network_interface'] + " is not valid interface")
+    log("Available interfaces are: ")
+    log(ni.interfaces())
+    sys.exit("quitting")
+
 ip_address = neti[2][0]['addr']
 
 # check if this ip address is already in the spreadsheet,
