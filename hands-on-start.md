@@ -16,7 +16,8 @@ docker ps
 docker ps -a
 ```
 
-- the container has been created, but had nothing to do, so it shut down we can attach to running
+- the container has been created, but had nothing to do, so it shut down
+- we can attach to the container (like ssh to the remote)
 
   -i keep STDIN open
 
