@@ -115,4 +115,4 @@ The impact of Docker containers on the performance of genomic pipelines [https:/
 
 ---
 
-see this as a slideshow [here](https://gnab.github.io/remark/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmkuzak%2Fshipcamel%2Fmaster%2Ftalk-notes.md#1)
+see this as a slideshow [here](https://gnab.github.io/remark/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmkuzak%2Fshipcamel%2Fmaster%2FDocker-use-cases.md#1)
