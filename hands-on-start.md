@@ -14,6 +14,7 @@ docker run ubuntu:14.04
 # host
 docker ps
 docker ps -a
+docker images
 ```
 
 - the container has been created, but had nothing to do, so it shut down
@@ -37,6 +38,7 @@ docker ps -a
 
 - exit with `exit`
 - if you run same command again, new ubuntu base container will be created
+- make a new container, create a file and exit. Restart the container again (`docker start [container ID]`, `docker attach [container ID]`). Are your changes still there?
 - you have to delete containers by hand, they will stack up very quickly,
 - you can `docker run` with `-rm` flag to delete the container once it exits
 
@@ -46,7 +48,7 @@ docker run --rm ubuntu:14.04
 ```
 
 # Building Docker images
-- we will build a Docker image for the MEGAHIT short read assembler ([http://angus.readthedocs.org/en/2015/assembling-ecoli.html%3E](http://angus.readthedocs.org/en/2015/assembling-ecoli.html%3E))
+- we will build a Docker image for the MEGAHIT short read assembler ([http://angus.readthedocs.org/en/2015/assembling-ecoli.html](http://angus.readthedocs.org/en/2015/assembling-ecoli.html))
 - start new container
 
 ```bash
@@ -131,18 +133,18 @@ ls $HOME/data
 ls $HOME/data/ecoli
 ```
 
-- we can run megahit command without entering the container like this
+- we can run megahit command without entering the container like this (first do `rm -rf [local ecoli dir]`)
 
 ```bash
 # host
 docker run -v $HOME/data:/data \
    -it megahit \
-   sh -c '/home/megahit/megahit --12 /data/*.pe.fq.gz
-                     -r /data/*.se.fq.gz
+   sh -c '/home/megahit/megahit --12 /data/*.pe.fq.gz \
+                     -r /data/*.se.fq.gz \
                      -o /data/ecoli -t 4'
 ```
 
-- we could also put the command in the script and run the script `do-assemble.sh`
+- we could also put the command in the script (on host or container) and run the script `do-assemble.sh`
 
 ```
 #! /bin/bash
@@ -159,7 +161,10 @@ chmod +x do-assemble.sh
 
 # building with Dockerfile
 
-```
+- create a Dockerfile
+
+```bash
+# host
 FROM ubuntu:14.04
 RUN apt-get update
 RUN apt-get install -y g++ make git zlib1g-dev python
@@ -172,7 +177,7 @@ CMD /data/do-assemble.sh
 
 ```bash
 # host
-docker build -t magahit .
+docker build -t megahit .
 ```
 
 - and run a container
