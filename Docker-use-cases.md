@@ -66,6 +66,8 @@
 # making it work for people who read you paper
 > it's great if you can point in the paper to a git commit relevant to publication, but that does not guarantee that they can install and run it, with docker you can point them to particular commit for the image and be sure they can run it anywhere they need to, you can even make whole paper reproducible
 
+### Example:
+
 Bremges, A., Maus, I., Belmann, P., Eikmeyer, F., Winkler, A., Albersmeier, A., Puhler, A., Schluter, A., Sczyrba, A.: (2015) Deeply sequenced metagenome and metatranscriptome of a biogas-producing microbial community from an agricultural production-scale biogas plant.GigaScience 4:33 doi:10.1186/s13742-015-0073-6 [Docker accessible version of the study](https://registry.hub.docker.com/u/metagenomics/2015-biogas-cebitec/)
 
 ---
