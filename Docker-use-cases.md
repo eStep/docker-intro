@@ -13,7 +13,7 @@
 ---
 
 # application centric
-- Docker is optimized for deployment of applications, not machines os systems
+- Docker is optimized for deployment of applications, not machines or systems
 
 ---
 
