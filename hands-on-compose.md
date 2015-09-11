@@ -62,7 +62,7 @@
   # Dockerfile
   FROM python:2.7
   ADD ./code /code
-  RUN pip install -r requirements.txt
+  RUN pip install -r /code/requirements.txt
   CMD python /code/app.py
   ```
 
