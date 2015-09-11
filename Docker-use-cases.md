@@ -18,14 +18,14 @@
 ---
 
 # automated builds
-- use `docker build` do build an image based on `Dockerfile`
+- use `docker build` to build an image based on `Dockerfile`
 - automated building on DockerHub after pushing to git repository
 
 ---
 
 # versioning
 - docker tracks all changes in successive versions of the container
-- it is possible to commit, dif and roll back
+- it is possible to commit, diff and roll back
 - like git, docker uses incremental uploads and downloads, so only diff is send
 
 ---
