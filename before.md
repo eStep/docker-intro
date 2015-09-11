@@ -11,3 +11,6 @@ Here are things that attendants of the workshop need to prepare in advance.
 `ssh-keygen -t rsa -b 4096`
 - if on Linux or Mac: install Docker; choose your OS and follow the corresponding instructions for [Linux](http://docs.docker.com/linux/started/) or [Mac](http://docs.docker.com/mac/started/)
 - for Windows users and those who don't want ot install Docker on their machines, there will be cloud VM available; in that case only ssh conncection and your ssh key pair is needed
+
+
+- https://docs.google.com/spreadsheets/d/1AX-MWeLxYDW3sVTFyihH-FjD354bk0ZrRjPh5yeec_A
