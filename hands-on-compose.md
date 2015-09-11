@@ -3,7 +3,14 @@
 - single file is used to define all inner workings of the application
 
 ## Lets build simple web app with [Flask](http://flask.pocoo.org/) and [Redis](http://redis.io/)
-- lets crete the directory for our application
+- Check that docker-compose is [installed](https://docs.docker.com/compose/install/)  
+
+  ```bash
+  # host
+  docker-compose --version
+  ```
+
+- lets create the directory for our application
 
   ```bash
   # host
@@ -97,3 +104,10 @@
   ```
 
 - direct your browser to the IP address of your host and use the proper port
+
+
+- or in your terminal
+ ```bash
+  # host
+  curl localhost:[port]
+  ```
