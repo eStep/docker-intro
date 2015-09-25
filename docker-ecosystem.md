@@ -49,13 +49,19 @@ Nerve, also from Airbnb, is used in conjunction with synapse to provide health c
 
 # Networking
 ## [flannel](https://github.com/coreos/flannel)
-Flannel is a virtual network that gives a subnet to each host for use with container runtimes.
+Developed by the CoreOS team, this project was initially developed to provide each host system with its own subnet of a shared network. This is a condition necessary for Google's kubernetes orchestration tool to function, but it is useful in other situations.
 
 ## [Weave](https://github.com/weaveworks/weave)
-Weave creates a virtual network that connects Docker containers deployed across multiple hosts and enables their automatic discovery.
+Weave creates a virtual network that connects each host machine together. This simplifies application routing as it gives the appearance of every container being plugged into a single network switch.
 
 ## [Pipework](https://github.com/jpetazzo/pipework)
 Pipework lets you connect together containers in arbitrarily complex scenarios. Pipework uses cgroups and namespace and works with "plain" LXC containers (created with lxc-start), and with the Docker.
+
+## [tinc](https://github.com/gsliepen/tinc)
+ Tinc is a lightweight VPN software that is implemented using tunnels and encryption. Tinc is a robust solution that can make the private network transparent to any applications.
+
+## [ZeroTier](https://github.com/zerotier/ZeroTierOne)
+ZeroTier provides network virtualization.
 
 # Orchestration (scheduling, cluster management, provisioning)
 **Cluster management**: controlling a group of hosts
