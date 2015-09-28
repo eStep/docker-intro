@@ -72,7 +72,7 @@ ZeroTier provides network virtualization.
 Fleet is the scheduling and cluster management component of CoreOS. It reads connection info for each host in the cluster from etcd and provides systemd-like service management.
 
 ## [marathon](https://github.com/mesosphere/marathon)
-Marathon is the scheduling and service management component of a Mesosphere installation. It works with mesos to control long-running services and provides a web UIfor process and container management.
+Marathon is the scheduling and service management component of a Mesosphere installation. It works with mesos to control long-running services and provides a web UI for process and container management.
 
 ## [swarm](https://docs.docker.com/swarm/)
 Swarm is a scheduler by Docker team. It hopes to provide a robust scheduler that can spin up containers on hosts provisioned with Docker, using Docker-native syntax.
@@ -88,6 +88,9 @@ Docker's compose project was created to allow group management of containers usi
 
 ## [Helios](https://github.com/spotify/helios)
 Helios is a Docker orchestration platform for deploying and managing containers across an entire fleet of servers, developed by Spotify.
+
+## [Nomad](https://www.nomadproject.io/)
+ Nomad, a cluster manager and scheduler designed for microservices and batch workloads. Nomad is distributed, highly available, and scales to thousands of nodes spanning multiple datacenters and regions. Nomad supports Docker as a first-class workload type. Jobs submitted to Nomad can use the docker task driver to easily deploy containerized applications. Jobs can specify the number of instances required and Nomad will handle placement and recover from failures automatically.
 
 # Monitoring and management
 ## [Shipyard](http://shipyard-project.com/)
