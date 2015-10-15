@@ -1,4 +1,4 @@
-# PASS
+# PAAS
 ## [Deis](http://deis.io/)
 Deis (pronounced DAY-iss) is an open source PaaS that makes it easy to deploy and manage applications on your own servers. Deis builds upon Docker and CoreOS to provide a lightweight PaaS with a Heroku-inspired workflow.
 
