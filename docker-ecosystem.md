@@ -81,7 +81,7 @@ Swarm is a scheduler by Docker team. It hopes to provide a robust scheduler that
 Apache mesos is a tool that abstracts and manages the resources of all hosts in a cluster. It presents a collection of the resources available throughout the entire cluster to the components built on top of it (like marathon). It describes itself as analogous to a "kernel" for a clustered configurations.
 
 ## [kubernetes](http://kubernetes.io/)
-Google's advanced scheduler, kubernetes allows much more control over the containers running on the infrastructure. Containers can be labeled, grouped, and given their own subnet for communication.
+Google's advanced scheduler, kubernetes allows much more control over the containers running on the infrastructure. Containers can be labeled, grouped, and given their own subnet for communication. Can mount nfs,iscsi,glusterfs,ceph rdb volumes in side containers.
 
 ## [compse](https://docs.docker.com/compose/)
 Docker's compose project was created to allow group management of containers using declarative configuration files. It uses Docker links to learn about the dependency relationship between containers.
