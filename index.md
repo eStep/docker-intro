@@ -1,7 +1,7 @@
 # Introduction to Docker
 
 This lesson depend on some software and setup. Please follow
-[instructions]('setup.md') to configure your computer.
+[instructions](setup.md) to configure your computer.
 
 *Introduction to Docker* teaches the basics of docker containers
 and containers in general.
