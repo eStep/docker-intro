@@ -58,4 +58,6 @@ export DOCKER_CERT_PATH="/Users/<user>/.docker/machine/machines/dev"
 export DOCKER_MACHINE_NAME="dev"
 # Run this command to configure your shell:
 # eval $(docker-machine env dev)
-```    
+```
+Now we can run docker containers in VirtualBox like we would locally.
+We will learn about running containers in [next lesson](running-docker-containers.md)  
