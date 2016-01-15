@@ -24,6 +24,8 @@ is to use [Docker Toolbox](https://www.docker.com/docker-toolbox).
 [installation instructions for windows](https://docs.docker.com/mac/step_one/)
 
 ## Linux
+Make sure you have 64 bit linux version. You cannot run `docker-engine` on
+32 bit linux.
 Even though docker can be installed in most linux distributions with a package
 manager, we recommend using VirtualBox and `docker-machine`.
 
@@ -45,4 +47,4 @@ manager, we recommend using VirtualBox and `docker-machine`.
 * `docker-compose`
 
     Install by following instructions on
-    [Docker documentation](https://docs.docker.com/compose/install/).
+    [Docker documentation](https://docs.docker.com/compose/install-machine/).
