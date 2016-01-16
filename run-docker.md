@@ -58,9 +58,56 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 78970e1f7290        hello-world         "/hello"            3 seconds ago       Exited (0) 2 seconds ago                       admiring_panini
 ```
 We should also be able to see the image that the `admiring_panini` container
-has been instantiated based on.
+has been instantiated from.
 ```sh
 $ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 hello-world         latest              0a6ba66e537a        3 months ago        960 B
 ```
+Old containers are kept by default, so after a while the list you see when
+running `docker ps -a` can get very long. You can remove not used containers
+by running
+```sh
+$ docker rm $(docker ps -a -q)
+$ docker ps -a
+```
+We can tell docker to remove container after it's stopped.
+```sh
+$ docker run --rm hello-world
+$ docker ps -a
+```
+
+We will run the container with ubuntu LTS. We can specify the label for the
+image we are interested in after `:` in this case `:14.04`.
+```sh
+$ docker run ubuntu:14.04
+Unable to find image 'ubuntu:14.04' locally
+14.04: Pulling from library/ubuntu
+fcee8bcfe180: Pull complete
+4cdc0cbc1936: Pull complete
+d9e545b90db8: Pull complete
+c4bea91afef3: Pull complete
+Digest: sha256:098d121c6a9b39080f835563695f8e05faf765f46c174570e61d08197e82b820
+Status: Downloaded newer image for ubuntu:14.04
+```
+This time the containers shuts down immediately after starting.
+```sh
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS                          PORTS               NAMES
+de742dcb2503        ubuntu:14.04        "/bin/bash"         About a minute ago   Exited (0) About a minute ago                       fervent_saha
+```
+We can start the container in interactive mode and attach to its terminal.
+```sh
+$ docker run -it ubuntu:14.04
+root@2f4df153d302:/#
+```
+We are now inside runnig docker container.
+```sh
+root@2f4df153d302:/# lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 14.04.3 LTS
+Release:	14.04
+Codename:	trusty
+```
+exit the container with `exit` command.
