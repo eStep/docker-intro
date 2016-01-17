@@ -9,8 +9,8 @@ and containers in general.
 ## Topics
   * Inroduction to processs isolation and conternalisation
   * [Introduction to `docker-machine`](intro-docker-machine.md)
-  * Running Docker containers
-  * Building Docker images
+  * [Running Docker containers](docker-run.md)
+  * [Building Docker images](docker-build.md)
   * Dealing with data
   * Building with Dockerfile
   * Introduction to `docker-compose`
