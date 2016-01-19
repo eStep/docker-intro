@@ -22,11 +22,11 @@ Here are the steps that we need to make to achieve this:
 * get aour script into the container
 * acess locally flask application served from inside the container
 
-Assuming the `hello.py` script with our flask app  is in `./code`
+Assuming the `hello.py` script with our flask app  is in `./app`
 directory, we can mount it inside the container with `-v` flag.
 
 ```sh
-$docker run -v $PWD/code:/code
+$docker run -v $PWD/app:/app
 ```
 
 We also need to expose port `5000` from the container to our host.
@@ -38,13 +38,13 @@ $docker run -p 5000 ubuntu:14.04
 
 Let us add this all up:
 ```sh
-$ docker run -it -v $PWD/code:/code/ -p 5000 ubuntu:14.04
+$ docker run -it -v $PWD/app:/app/ -p 5000 ubuntu:14.04
 root@11e2c4d5b385:/# apt-get update
 root@11e2c4d5b385:/# apt-get install -y python python-pip
 root@11e2c4d5b385:/# pip install flask
-root@11e2c4d5b385:/# cd /code
-root@11e2c4d5b385:code/# chmod +x hello.py
-root@11e2c4d5b385:code/# ./hello.py
+root@11e2c4d5b385:/# cd /app
+root@11e2c4d5b385:app/# chmod +x hello.py
+root@11e2c4d5b385:app/# ./hello.py
 ```
 
 We want to see the flask application via a web browser on local machine.
@@ -65,4 +65,23 @@ Remember our flask app serves hellos on at `/hi` root, so we shold be access
 it at
 ```sh
 http://192.168.99.100:32768/hi
+```
+
+This is great, but it's a lot of work and bookkeeping. We will learn how to
+document and `script` this process. We will also build an image based on
+the requirements so that we can quickly start it when ever we need to.
+
+We will create a file called `Dockerfile` in which we tell `docker` how to
+build an image for us.
+
+```Dockerfile
+FROM ubuntu:14.04
+RUN apt-get update
+RUN apt-get install -y python python-pip
+RUN pip install flask
+ADD $PWD/app /app
+
+WORKDIR /app
+EXPOSE 5000
+CMD python hello.py
 ```
