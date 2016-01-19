@@ -11,8 +11,7 @@ and containers in general.
   * [Introduction to `docker-machine`](intro-docker-machine.md)
   * [Running Docker containers](docker-run.md)
   * [Building Docker images](docker-build.md)
-  * Dealing with data
-  * Building with Dockerfile
+  * [Networking](docker-networks.md)
   * Introduction to `docker-compose`
 
 ## Additional materials
