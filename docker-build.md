@@ -85,3 +85,48 @@ WORKDIR /app
 EXPOSE 5000
 CMD python hello.py
 ```
+
+Lets explain what is happening:
+* `FROM` defines the `base` image we want to use
+* `RUN` will run a command in shell inside the contaier
+* `ADD` will copy files from local into the container,
+  the first path is relative to Dockerfile location,
+  second is relative to root in the container
+* `WORKDIR` will set the working directory inside the container
+* `EXPOSE` will expose the port in the container to the outside
+* `CMD` is the default command when running the container
+
+Now we are going to build this iamge.
+
+```sh
+$ docker build -t flask .
+```
+We are labelling the image `flask` by using `-t` flag.
+We tell docker to look for Docker file in current working directory `.` . 
+
+```sh
+$ docker images
+REPOSITORY              TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+flask                   latest              86b0a35f9fa6        6 seconds ago       358.4 MB
+```
+
+Now we can run it.
+
+```sh
+$ docker run -d -P flask
+```
+
+We bind the ports with `-P` and run the container as a deamon,
+in the background with `-d`.
+
+```sh
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES
+20f2420ef0f4        flask               "python /app/hello.py"   2 seconds ago       Up 1 seconds        0.0.0.0:32770->5000/tcp   stupefied_yonath
+```
+
+We see the flask app can be acessed on port `32770`.
+That means we should see it at:
+```
+http://192.168.99.100:32770/hi
+```
