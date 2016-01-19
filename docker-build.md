@@ -67,6 +67,8 @@ it at
 http://192.168.99.100:32768/hi
 ```
 
+## Building from with Dockerfile
+
 This is great, but it's a lot of work and bookkeeping. We will learn how to
 document and `script` this process. We will also build an image based on
 the requirements so that we can quickly start it when ever we need to.
