@@ -47,4 +47,4 @@ manager, we recommend using VirtualBox and `docker-machine`.
 * `docker-compose`
 
     Install by following instructions on
-    [Docker documentation](https://docs.docker.com/compose/install-machine/).
+    [Docker documentation](https://docs.docker.com/compose/install/).
