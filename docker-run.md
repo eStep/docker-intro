@@ -10,6 +10,9 @@ between image and the container. As described in Docker documentation:
 
 We will start with running a container based on `hello-word` image.
 
+Please run all the following commands in your home directory. Otherwise you
+can encounter problems with mounting local volumes.
+
 ```sh
 $ docker run hello-world
 Unable to find image 'hello-world:latest' locally
@@ -111,3 +114,18 @@ Release:	14.04
 Codename:	trusty
 ```
 exit the container with `exit` command.
+
+## Deleting images
+All downloaded image may take up space on your computer.
+You can remove images with `docker rmi` command. Lets see
+what kind of images we have:
+```sh
+$ docker images
+ubuntu                  14.04               c4bea91afef3        2 weeks ago         187.9 MB
+```
+Now use image hash to remove it:
+```sh
+$ docker rmi c4bea91afef3
+```
+You will most probably need to remove a container that is based on this image
+before you can remove the image itself.
