@@ -33,7 +33,15 @@ is to use [Docker Toolbox](https://www.docker.com/docker-toolbox).
 
 ## Linux
 Make sure you have 64 bit linux version. You cannot run `docker-engine` on
-32 bit linux.
+32 bit linux. If you are not sure which version of Linux you have available
+on your computer you can check it with following commands
+```sh
+# to learn about the distribution
+$ lsb_release -dc
+# to learn about architecture
+$ arch
+```
+
 Even though docker can be installed in most linux distributions with a package
 manager, we recommend using VirtualBox and `docker-machine`.
 
