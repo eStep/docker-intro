@@ -46,6 +46,10 @@ Even though docker can be installed in most linux distributions with a package
 manager, we recommend using VirtualBox and `docker-machine`.
 
 * VirtualBox
+    
+    Even if you have VirtualBox installed try to install the latest version.
+    There have been a lot of changes to VB recenlty that make it play better
+    with docker. 
 
     Download and install VirtualBox from
     [Oracle website](https://www.virtualbox.org/wiki/Linux_Downloads)
