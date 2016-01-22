@@ -61,7 +61,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 11e2c4d5b385        ubuntu:14.04        "/bin/bash"         24 minutes ago      Up 24 minutes       0.0.0.0:32768->5000/tcp   sick_swirles
 ```
 
-Remember our flask app serves hellos on at `/hi` root, so we shold be access
+Remember our flask app serves hellos on at `/hi` root, so we should be access
 it at
 ```sh
 http://192.168.99.100:32768/hi
@@ -90,7 +90,7 @@ CMD python hello.py
 
 Lets explain what is happening:
 * `FROM` defines the `base` image we want to use
-* `RUN` will run a command in shell inside the contaier
+* `RUN` will run a command in shell inside the container
 * `ADD` will copy files from local into the container,
   the first path is relative to Dockerfile location,
   second is relative to root in the container
@@ -118,7 +118,7 @@ Now we can run it.
 $ docker run -d -P flask
 ```
 
-We bind the ports with `-P` and run the container as a deamon,
+We bind the ports with `-P` and run the container as a daemon,
 in the background with `-d`.
 
 ```sh
@@ -127,7 +127,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 20f2420ef0f4        flask               "python /app/hello.py"   2 seconds ago       Up 1 seconds        0.0.0.0:32770->5000/tcp   stupefied_yonath
 ```
 
-We see the flask app can be acessed on port `32770`.
+We see the flask app can be accessed on port `32770`.
 That means we should see it at:
 ```
 http://192.168.99.100:32770/hi

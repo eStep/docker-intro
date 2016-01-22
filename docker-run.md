@@ -3,7 +3,7 @@ between image and the container. As described in Docker documentation:
 
 > **Docker images** are the basis of containers. An image is an ordered
 > collection of root filesystem changes and the corresponding execution
-> parameters for use whithin a container runtime. They are read only.
+> parameters for use within a container runtime. They are read only.
 
 
 > **Container** is a runtime instance of a docker image.
@@ -104,7 +104,7 @@ We can start the container in interactive mode and attach to its terminal.
 $ docker run -it ubuntu:14.04
 root@2f4df153d302:/#
 ```
-We are now inside runnig docker container.
+We are now inside running docker container.
 ```sh
 root@2f4df153d302:/# lsb_release -a
 No LSB modules are available.
