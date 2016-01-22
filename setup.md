@@ -1,7 +1,15 @@
+The goal of this workshop is to understand the basics of `docker`. In order to
+do it we need to setup few `docker` tools. 
+
 For the entire workshop, independent of the operating system, we will be using
-`docker-machine`. You will learn more about `docker-machine` during the workshop.
+`docker-machine`. It will let us setup host (in our case vm in virualbox)
+and configure docker client to talk to it. You will learn more about
+`docker-machine` during the workshop.
+
+Last lesson shows how to define and run multi-container applications with `docker-compose`.
 
 Following are the instructions to setup `docker-machine` on your computer.
+
 
 ## Windows
 On Windows, the simplest way to setup `Docker`, `docker-machine` and `docker-compose` is
