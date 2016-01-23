@@ -47,6 +47,10 @@ manager, we recommend using VirtualBox and `docker-machine`.
 
 * VirtualBox
     
+    Our docker host will be running in the virtualbox and all docker contaiers
+    will be running on this host. `docker-machine` will help us with the setup
+    and talking to this host.
+    
     Even if you have VirtualBox installed try to install the latest version.
     There have been a lot of changes to VB recenlty that make it play better
     with docker. 
