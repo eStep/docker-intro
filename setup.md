@@ -52,8 +52,9 @@ manager, we recommend using VirtualBox and `docker-machine`.
     and talking to this host.
     
     Even if you have VirtualBox installed try to install the latest version.
-    There have been a lot of changes to VB recenlty that make it play better
-    with docker. 
+    There have been a lot of changes to VB recently that make it play better
+    with docker. Latest VirtualBox version at the time of writing this tutorial
+    is `5.0.14`
 
     Download and install VirtualBox from
     [Oracle website](https://www.virtualbox.org/wiki/Linux_Downloads)
@@ -72,3 +73,11 @@ manager, we recommend using VirtualBox and `docker-machine`.
 
     Install by following instructions on
     [Docker documentation](https://docs.docker.com/compose/install/).
+    
+Check if all docker tools are installed on your computer.
+```sh
+$ docker-machine --version
+docker-machine version 0.5.6, build 61388e9
+$ docker-compose --version
+docker-compose version: 1.5.0
+```
