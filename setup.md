@@ -4,7 +4,8 @@ do it we need to setup few `docker` tools.
 For the entire workshop, independent of the operating system, we will be using
 `docker-machine`. It will let us setup host (in our case vm in virualbox)
 and configure docker client to talk to it. You will learn more about
-`docker-machine` during the workshop.
+`docker-machine` during the workshop. There is no need for creating new virtual machine
+inside VirtualBox before start of the workshop.
 
 Last lesson shows how to define and run multi-container applications with `docker-compose`.
 
