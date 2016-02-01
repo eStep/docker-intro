@@ -7,7 +7,7 @@ This lesson depend on some software and setup. Please follow
 and containers in general.
 
 ## Topics
-  * Inroduction to processs isolation and conternalisation
+  * [Introduction to processs isolation and containerization](intro-docker.md)
   * [Introduction to `docker-machine`](intro-docker-machine.md)
   * [Running Docker containers](docker-run.md)
   * [Building Docker images](docker-build.md)
