@@ -48,7 +48,6 @@ To be able to connect ot this machine we have to export some environmental
 variables.
 
 ```sh
-$ eval "$(docker-machine env dev)"
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 $ docker-machine env dev
@@ -58,6 +57,8 @@ export DOCKER_CERT_PATH="/Users/<user>/.docker/machine/machines/dev"
 export DOCKER_MACHINE_NAME="dev"
 # Run this command to configure your shell:
 # eval $(docker-machine env dev)
+
+$ eval "$(docker-machine env dev)"
 ```
 Now we can run docker containers in VirtualBox like we would locally.
 We will learn about running containers in [next lesson](running-docker-containers.md)  
