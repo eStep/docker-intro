@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
 Here are the steps that we need to make to achieve this:
 * install python and flask
-* get aour script into the container
+* get our script into the container
 * acess locally flask application served from inside the container
 
 Assuming the `hello.py` script with our flask app  is in `./app`
@@ -67,7 +67,7 @@ it at
 http://192.168.99.100:32768/hi
 ```
 
-## Building from with Dockerfile
+## Building from Dockerfile with `docker build`
 
 This is great, but it's a lot of work and bookkeeping. We will learn how to
 document and `script` this process. We will also build an image based on
