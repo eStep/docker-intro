@@ -43,12 +43,12 @@ For more examples and ideas, visit:
  https://docs.docker.com/userguide/
 ```
 When you run this command `Docker` will:
-* check to `hello-world` image is available locally
+* check if `hello-world` image is available locally
 * download the image (from Docker Hub) if needed
 * load the image into the container and run it
 
-This container does not do much it outputs the message you see and shuts down.
-Lets list all running containers.
+This container does not do much it outputs the message above and shuts down.
+Let us list all running containers.
 ```sh
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
