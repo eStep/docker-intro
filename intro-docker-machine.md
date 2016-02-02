@@ -14,7 +14,7 @@ We see that we don't have any machines at the beginning. We have to create
 one.
 
 ```sh
-$ docker-machine create --drive virtualbox dev
+$ docker-machine create --driver virtualbox dev
 Running pre-create checks...
 Creating machine...
 (default) Copying 
