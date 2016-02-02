@@ -61,4 +61,4 @@ export DOCKER_MACHINE_NAME="dev"
 $ eval "$(docker-machine env dev)"
 ```
 Now we can run docker containers in VirtualBox like we would locally.
-We will learn about running containers in [next lesson](running-docker-containers.md)  
+We will learn about running containers in [next lesson](docker-run.md)  
