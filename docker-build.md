@@ -98,7 +98,7 @@ Lets explain what is happening:
 * `EXPOSE` will expose the port in the container to the outside
 * `CMD` is the default command when running the container
 
-Now we are going to build this iamge.
+Now we are going to build this image.
 
 ```sh
 $ docker build -t flask .
