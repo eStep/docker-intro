@@ -3,13 +3,18 @@
 `docker-compose` is a tool used for defining and running multi-container
 applications.
 To use `compose` we have to:
-* create Dockerfile with description for each service 
+* create `Dockerfile` with description for each service 
 * create `docker-compose.yml` file with description of how different services
   come together
 * run `docker-compose up` to start the whole application
 
-We're going to modify our flask app so that it keeps all visits to the
-website. We will store number of visits in redis store.
+We're going to modify our flask app so that it keeps track of all visits
+to the website. We will store number of visits in [redis](http://redis.io/) store.
+
+> Redis is a data structure server. It is open-source, networked, in-memory,
+> and stores keys with optional durability. 
+
+Let us create count-hello.py file:
 
 ```python
 #!/usr/bin/env python
@@ -35,7 +40,7 @@ flask
 redis
 ```
 
-Description of flask image goues into new Dckerfile
+Description of flask image goes into new `Dckerfile`
 ```Dockerfile
 FROM python:2.7
 ADD . /app
@@ -55,7 +60,8 @@ REPOSITORY              TAG                 IMAGE ID            CREATED         
 web                     latest              1b11b4e28507        6 seconds ago       682.7 MB
 ```
 
-We will use `docker-compose.yml` to define our microservices:
+We will use `docker-compose` to define our complex application.
+The instructions should be stored in `docker-compose.yml` file:
 ```yml
 web:
   build: .
@@ -72,12 +78,15 @@ redis:
 It defines `web` container which:
 * is built from `Docerfile` in same directory
 * binds `port 5000` in the container to `port 5000` on the host
-* mounts `cwd` as `/code` inside the container
+* mounts `cwd` (or $PWD) as `/code` inside the container
 * links to other container called `redis`
 
-It also defines `redis` container that will be buld from `redis` official
-image.
+It also defines `redis` container that will be buld from `redis` [official
+image](https://hub.docker.com/_/redis/) in `dockerhub`.
 
+To start compose application run `docker-compose up`.
+To see report of running compose defined contaiers run `docker-compose ps`
+from the directory with `docker-compose.yml` file.
 ```sh
 $ docker-compose up
 $ docker-compose ps
