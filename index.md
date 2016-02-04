@@ -12,6 +12,7 @@ and containers in general.
   * [Running Docker containers](docker-run.md)
   * [Building Docker images](docker-build.md)
   * [Multi Container Applications](multi-container-applications.md)
+  * [Introduction to `docker-machine`](intro-docker-machine.md)
 
 ## Additional materials
   * use cases
