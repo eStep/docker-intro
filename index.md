@@ -8,7 +8,6 @@ and containers in general.
 
 ## Topics
   * [Introduction to processs isolation and containerization](intro-docker.md)
-  * [Introduction to `docker-machine`](intro-docker-machine.md)
   * [Running Docker containers](docker-run.md)
   * [Building Docker images](docker-build.md)
   * [Multi Container Applications](multi-container-applications.md)
