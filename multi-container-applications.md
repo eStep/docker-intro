@@ -40,7 +40,7 @@ flask
 redis
 ```
 
-Description of flask image goes into new `Dckerfile`
+Description of flask image goes into new `Dockerfile`
 ```Dockerfile
 FROM python:2.7
 ADD . /app
@@ -76,7 +76,7 @@ redis:
 ```
 
 It defines `web` container which:
-* is built from `Docerfile` in same directory
+* is built from `Dockerfile` in same directory
 * binds `port 5000` in the container to `port 5000` on the host
 * mounts `cwd` (or $PWD) as `/code` inside the container
 * links to other container called `redis`
