@@ -46,7 +46,7 @@ FROM python:2.7
 ADD . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
-CMD ["python", "hello-counter.py"]
+CMD ["python", "count-hello.py"]
 ```
 
 This time our starting image is `ptyhon:2.7` intstead of `ubuntu`, this way
@@ -93,6 +93,6 @@ $ docker-compose ps
         Name                      Command               State           Ports
 --------------------------------------------------------------------------------------
 composeflask_redis_1   /entrypoint.sh redis-server      Up      6379/tcp
-composeflask_web_1     /bin/sh -c python hello-co ...   Up      0.0.0.0:5000->5000/tcp
+composeflask_web_1     /bin/sh -c python count-hel ...   Up      0.0.0.0:5000->5000/tcp
     
 ```
