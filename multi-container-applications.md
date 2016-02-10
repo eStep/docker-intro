@@ -54,7 +54,7 @@ we avoid installing python and can move immediately to installing python modules
 
 We're now going to build the image like we did before
 ```sh
-$ docker build -t web ./compose-flask
+$ docker build -t web .
 $ docker images
 REPOSITORY              TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 web                     latest              1b11b4e28507        6 seconds ago       682.7 MB
