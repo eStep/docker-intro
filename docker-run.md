@@ -129,3 +129,17 @@ $ docker rmi c4bea91afef3
 ```
 You will most probably need to remove a container that is based on this image
 before you can remove the image itself.
+
+> **Tip**
+> After some time working with `docker` you end up having large amount
+> of containers occupying considerable amount of disk space.
+> You have to remove containers before removing the images since containers
+> depend on images.
+> ```sh
+> # stop runing containers
+> $ docker stop $(docker ps -a -q)
+> # remove containers
+> $ docker rm $(docker ps -a -q)
+> $ remove images
+> $ docker rmi $(docker images -q)
+> ```
