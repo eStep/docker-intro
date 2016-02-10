@@ -3,7 +3,7 @@
 The goal of this workshop is to understand the basics of `docker`. In order to
 do it we need to setup few `docker` tools. This tutorial expects that you are
 working with linux operating system, either one running directly on your computer
-a linux vm inside VirtualBox or other virtualisation software.
+a linux vm inside VirtualBox or other virtualization software.
 
 For *Multi Container Applications* lesson you will need to install `docker-compose`.
 
